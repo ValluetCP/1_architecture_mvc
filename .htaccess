@@ -1,0 +1,45 @@
+RewriteEngine On
+
+# Règles de réécriture d'URL :
+
+# pour les routes
+
+#La règle de réécriture RewriteRule ^$ est utilisée pour rediriger l'URL racine vers une autre page ou une autre URL. Le ^$ signifie que la règle s'appliquera uniquement lorsque l'URL demandée est la racine du site, c'est-à-dire lorsqu'il n'y a rien après le nom de domaine dans l'URL.
+
+#[L] signifie "Last" (dernière) et indique que si la règle actuelle est appliquée, c'est la dernière règle qui sera évaluée, et aucune autre règle de réécriture ne sera exécutée. Cela peut être utile pour éviter que des règles ultérieures interfèrent avec la règle actuelle.
+
+RewriteRule ^$                             index.php [L]
+
+#[QSA] signifie "Query String Append" (ajout de la chaîne de requête) et indique que la chaîne de requête (c'est-à-dire les paramètres d'URL après le point d'interrogation ?) de l'URL d'origine doit être conservée et ajoutée à l'URL réécrite. Cela est couramment utilisé pour conserver les paramètres d'URL lors de la réécriture.
+
+
+                                            # Cette syntaxe ci-dessous est une :
+                                            # Requête HTTP de la method GET dans l'URL
+                                            # permet de récupérer les infos de l'utilisateur
+                                            # Tout ce qui se passe après "?" ce sera le contenu de notre GET
+                                            # On récupère les besoins d'un client grâce à travers l'URL
+                                            # reconfigurer la syntaxe pour que ce soit plus beau et compréhensible. C'est meilleure pour le référencement
+                                            # objectif : diriger le client vers les pages qui le concerne
+
+                                            # Avec cette syntaxe, l'URL peut-être changé manuellement. Par exemple on peut changer la clé
+
+# # Avec cette syntaxe, l'URL ne peut-être
+# changé manuellement. Par exemple on peut 
+# pas changer la clé car elle n'apparraît pas
+
+# mitra/
+RewriteRule ^(\w+)/?$                       index.php?controller=$1 [L,QSA]
+# mitra/izadi/
+RewriteRule ^(\w+)/(\w+)$                   index.php?controller=$1&method=$2 [L,QSA]
+# mitra/izadi/456
+# par exemple : il peut envoyer 3 données
+RewriteRule ^(\w+)/(\w+)/(\d+)$             index.php?controller=$1&method=$2&id=$3 [L,QSA]
+# mitra/izadi/456/ce_quon_veut
+RewriteRule ^(\w+)/(\w+)/(\d+)/(.*)$        index.php?controller=$1&method=$2&id=$3 [L,QSA]
+
+
+
+
+# OBJECTIF :
+# avoir une URL propre
+# index doit-être la porte d'entrée
