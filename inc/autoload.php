@@ -5,6 +5,8 @@ La fonction 'chargeClass' sera donc appelé quand une class sera requise.
 L'argument sera le nom de la class requise.
 
  */
+
+//  function chargeClass(Controller\HomeController)
 function chargeClass($className)
 {
     // On remplace les \ qui sont dans le nom de la class à charger par des / qui est le séparateur de dossier

@@ -10,4 +10,9 @@ class HomeController extends BaseController
     {
         $this->render("home.html.php");
     }
+    public function mitra()
+    {
+        // il s'affichera grâce à views
+        $this->render("home.html.php");
+    }
 }

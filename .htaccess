@@ -43,3 +43,5 @@ RewriteRule ^(\w+)/(\w+)/(\d+)/(.*)$        index.php?controller=$1&method=$2&id
 # OBJECTIF :
 # avoir une URL propre
 # index doit-être la porte d'entrée
+# Configurer l'URL
+# pour ne plus voir le format, l'extension des fichiers

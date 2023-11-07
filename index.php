@@ -43,7 +43,7 @@ echo $id."<br>";
 
 
 $classeController = "controller\\" . ucfirst($controller) . "Controller";  // ucfirst: met la première lettre d'un string en majuscule
-/* $classeController = "controller\UserController" 
+/* $classeController = "controller\UserController"
    $method = "list"
 */
 
@@ -58,6 +58,7 @@ $classeController = "controller\\" . ucfirst($controller) . "Controller";  // uc
     _⚠ le nom de la classe doit être dans une variable pour pouvoir utiliser 'new'
 */
 
+// spl_autoload_register("chargeClass");
 // $controller = new Controller\HomeController;   -- idem
 $controller = new $classeController;
 // $UserController->update($id);
@@ -74,3 +75,13 @@ $controller->$method($id);
 
 // l'URL sera : 
 // localhost/1_architecture_mvc/mitra/izadi/456
+
+// Objectif (l'ordre, ce qu'on renseigne dans l'URL)
+// 1. Appel le controller : On lui donne le nom du controller
+// 2. la method à éxécuter
+// 3. la method à éxécuter
+
+
+// 1. il cherche le fichier
+//  - il va chercher le dossier controller puis ajoute une majuscule à la 1ère lettre du mot envoyé dans l'URL (donne les indication du fichier à chercher)
+// 2. Va chercher le fichier du même nom
